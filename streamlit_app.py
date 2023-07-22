@@ -8,13 +8,10 @@ import streamlit as st
 
 
 with st.echo(code_location='below'):
-    df = pd.DataFrame(
-        [
-            {"command": "st.selectbox", "rating": 4, "is_widget": True},
-            {"command": "st.balloons", "rating": 5, "is_widget": False},
-            {"command": "st.time_input", "rating": 3, "is_widget": True},
-        ]
-    )
+    liczba_klubow = range(1,19)
+    listaklubow = ["Cracovia","Górnik","Jagiellonia","Korona","Lech","Legia","ŁKS","Piast","Pogoń","Puszcza","Radomiak","Raków","Ruch","Stal","Śląsk","Warta","Widzew","Zagłębie"]
+    dict1 = {listaklubow[i]:[[None,None,False] for i in liczba_klubow ] for i in liczba_klubow}
+    df = pd.DataFrame(dict1, index = listaklubow)
 
     st.dataframe(df, use_container_width=True)
     
