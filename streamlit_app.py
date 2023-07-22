@@ -8,6 +8,18 @@ import streamlit as st
 
 
 with st.echo(code_location='below'):
+    df = pd.DataFrame(
+        [
+            {"command": "st.selectbox", "rating": 4, "is_widget": True},
+            {"command": "st.balloons", "rating": 5, "is_widget": False},
+            {"command": "st.time_input", "rating": 3, "is_widget": True},
+        ]
+    )
+
+st.dataframe(df, use_container_width=True)
+    
+    
+    
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
